@@ -26,5 +26,9 @@ else
 	global="$HOME/bookmarks.txt"
 	local="$PWD/bookmarks.txt"
 
-	cat "$global" "$local" 2>/dev/null || true
+	if [ "$global" = "$local" ]; then
+		cat "$global" 2>/dev/null || true
+	else
+		cat "$global" "$local" 2>/dev/null || true
+	fi
 fi
